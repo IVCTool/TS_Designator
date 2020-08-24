@@ -29,7 +29,6 @@ mainClassName = 'nl.tno.msg.tc_designator.Run'
 
 dependencies {
 
-    implementation  "io.github.ivctool:Command:${ivctVersion}"
     implementation  libraries.ieee_lib
 	implementation  libraries.tc_lib
     implementation  libraries.tc_lib_designator
