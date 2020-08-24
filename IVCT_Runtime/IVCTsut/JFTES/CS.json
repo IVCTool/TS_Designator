@@ -1,0 +1,11 @@
+{
+    "id": "JFTES",
+    "name": "JFTES",
+    "description": "JFTES is the Joint Fires Training and Exercise System for the Royal Netherlands Army",
+    "vendor": "Bagira",
+    "version": "1.0.0",
+    "badge": ["Designator-2020"],
+    "settingsDesignator": "crcAddress=localhost:8989",
+    "federationName": "MAK-RPR-2.0",
+    "sutFederateName": "A",
+}

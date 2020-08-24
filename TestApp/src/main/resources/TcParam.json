@@ -1,0 +1,6 @@
+{
+  "FOMfile":"$(IVCT_SUT_HOME_ID)/$(IVCT_SUT_ID)/$(IVCT_TESTSUITE_ID)/RPR_FOM_v2.0_1516-2010.xml",
+  "MIMfile":"$(IVCT_SUT_HOME_ID)/$(IVCT_SUT_ID)/$(IVCT_TESTSUITE_ID)/HLAstandardMIM.xml",
+  "initialWaitingTime":"0.0",
+  "totalTestCaseTime":"30.0"
+}

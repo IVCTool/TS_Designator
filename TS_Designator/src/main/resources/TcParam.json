@@ -1,0 +1,13 @@
+{
+  "FOMfile":"$(IVCT_SUT_HOME_ID)/$(IVCT_SUT_ID)/$(IVCT_TESTSUITE_ID)/RPR_FOM_v2.0_1516-2010.xml",
+  "MIMfile":"$(IVCT_SUT_HOME_ID)/$(IVCT_SUT_ID)/$(IVCT_TESTSUITE_ID)/HLAstandardMIM.xml",
+  "alwaysReportWhenTestPassesAfterFail":"true",
+  "initialWaitingTime":"0.0",
+  "totalTestCaseTime":"30.0",
+  "maxTimeBetweenPowerZeroAndDesignatorRemoval":"0.1",
+  "maxTimeBetweenHostRemovalAndDesignatorRemoval":"0.1",
+  "heartbeatDrNonStatic":"5.0",
+  "distanceThresholdDrNonStatic":"1.0",
+  "heartbeatDrStatic":"60.0",
+  "distanceThresholdDrStatic":"5.0"
+}

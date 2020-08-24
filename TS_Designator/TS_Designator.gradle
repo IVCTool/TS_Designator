@@ -1,0 +1,96 @@
+buildscript {
+    repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+  dependencies {
+	classpath libraries.docker
+  }
+}
+
+// apply plugin: "com.bmuschko.docker-remote-api"
+apply plugin: com.bmuschko.gradle.docker.DockerRemoteApiPlugin
+
+// Import task types
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+
+// Use task types
+task dockerBuildImage(type: DockerBuildImage) {
+    dependsOn 'install'
+    inputDir = file('.')
+    buildArgs.put('version', "${designatorVersion}")
+    tags.add ("ivct/ts-designator:${designatorVersion}")
+}
+
+// use java application packaging feature
+apply plugin: 'application'
+
+mainClassName = 'nl.tno.msg.tc_designator.Run'
+
+dependencies {
+
+    implementation  "io.github.ivctool:Command:${ivctVersion}"
+    implementation  libraries.ieee_lib
+	implementation  libraries.tc_lib
+    implementation  libraries.tc_lib_designator
+    implementation  libraries.oorti
+
+	implementation  libraries.slf4j_api
+	compileOnly		libraries.logback_classic
+	compileOnly		libraries.logback_core
+	compileOnly     libraries.slf4j_jcl_over_slf4j
+	compileOnly     libraries.slf4j_jul_to_slf4j
+	compileOnly     libraries.slf4j_log4j_over_slf4j
+	compileOnly		libraries.jsonSimple
+
+    testImplementation  libraries.tc_lib
+    testImplementation  "io.github.ivctool:Command:${ivctVersion}"
+    testImplementation  libraries.oorti
+
+    testImplementation	libraries.junit_jupiter_engine
+}
+
+tasks.withType(CreateStartScripts) {
+    classpath += files('lib')
+doLast {
+        def windowsScriptFile = file getWindowsScript()
+        def unixScriptFile = file getUnixScript()
+        windowsScriptFile.text = windowsScriptFile.text.replace('set CLASSPATH=', 'set CLASSPATH=%LRC_CLASSPATH%;')
+        // TODO unixScriptFile.text = unixScriptFile.text.replace('$APP_HOME/lib/lib', '$APP_HOME/lib:$LRC_CLASSPATH')
+    }
+}
+
+test {
+    // Enable JUnit 5 (Gradle 4.6+).
+    useJUnitPlatform()
+}
+
+// Write the  IVCT-Version as set to variable in libraries.gradle
+// in a  property-file
+task writeVersion {
+    group = "Build"
+    description = "Creates a properties file with version information"
+
+    doLast {
+        def prop = new Properties()
+        prop.version = ivctVersion
+        prop.ivctVersion = ivctVersion
+        prop.designatorVersion = designatorVersion
+        prop.build = "git describe --tags".execute().text.trim()
+        mkdir "src/main/resources"
+        File propFile = file('src/main/resources/testCaseBuild.properties')
+        prop.store(propFile.newWriter(), null)
+    }
+}
+processResources.dependsOn writeVersion
+
+// write IVCT-Version informations to manifest - file
+jar{
+  manifest{
+     attributes(
+     'Build-Timestamp': new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date()),
+        'ivctVersion' : ivctVersion,
+        'build' :       "git describe --tags".execute().text.trim()
+     )
+  }
+}
