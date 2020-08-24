@@ -17,10 +17,6 @@ script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker tag ivct/ts-designator:$VERSION ivct/ts-designator:$TRAVIS_BRANCH-latest
 - docker push ivct/ts-designator
-- docker tag ivct/testapp:pi-skeleton-$VERSION ivct/testapp:pi-skeleton-$TRAVIS_BRANCH-latest
-- docker tag ivct/testapp:po-$VERSION ivct/testapp:po-$TRAVIS_BRANCH-latest
-- docker tag ivct/testapp:ma-$VERSION ivct/testapp:ma-$TRAVIS_BRANCH-latest
-- docker push ivct/testapp
 
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
