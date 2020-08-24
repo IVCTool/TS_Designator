@@ -71,7 +71,8 @@ The following test case parameters can be adapted in the IVCT GUI, before execut
 
 ### Test case supplementary information
 
-- The test cases can handle any number of Designator object instances at the same time.
+- The IVCT requires the following FOM modules for executing the test cases: `RPR_FOM_v2.0_1516-2010.xml` and `HLAstandardMIM.xml`. The file location of these FOM modules must be set in the test case parameters.
+- The test cases can handle any number of Designator object instances at the same time. At least one designator must be created by the SuT for the test cases to be able to test anything;
 
 ## Test suite developmental information
 
