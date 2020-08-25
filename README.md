@@ -71,8 +71,9 @@ The following test case parameters can be adapted in the IVCT GUI, before execut
 
 ### Test case supplementary information
 
-- The IVCT requires the following FOM modules for executing the test cases: `RPR_FOM_v2.0_1516-2010.xml` and `HLAstandardMIM.xml`. The file location of these FOM modules must be set in the test case parameters.
-- The test cases can handle any number of Designator object instances at the same time. At least one designator must be created by the SuT for the test cases to be able to test anything;
+- The designator test suite requires the following FOM modules for the execution of the test cases: `RPR_FOM_v2.0_1516-2010.xml` and `HLAstandardMIM.xml`. These FOM modules must be uploaded to the IVCT and the file location of the FOM modules must be set in the test case parameters.
+- The designator test suite can handle any number of designator object instances at the same time. At least one designator object instance should be registered and updated by the SuT in order to perform a test.
+- The designator test suite disregards any discovered designator object instance for which there are no follow-up attributes value updates. So the registration and deletion of a designator object instance (without any attribute value updates) is equivalent to not creating the object instance at all.
 
 ## Test suite developmental information
 
