@@ -62,9 +62,7 @@ tasks.register ("dockerBuildImage") {
 
 
 dependencies {
-    compileOnly group: 'io.github.msg134', name: 'IEEE1516e', version: ivctVersion
-    implementation libraries.tc_lib_designator
-    implementation libraries.tc_lib
+    implementation project(':TS_Designator')
     implementation libraries.oorti
     compile        libraries.slf4j_api
     runtime        libraries.logback_classic
