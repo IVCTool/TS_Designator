@@ -247,11 +247,15 @@ Set `LRC_CLASSPATH` to for example `C:\Program Files\prti1516e\lib\prti1516.jar`
   - Click e.g. TC0001_Lifecycle under JFTES; execute the Test Case
 
 #### Run option 2: run Test Suite standalone in Eclipse
+To run the test suite the old fashioned way (not as a unit test): first copy `IVCT/TS_Designator_Base/TS_Designator/src/test/java/nl/tno/msg/tc_designator/Run.java` to `IVCT/TS_Designator_Base/TS_Designator/src/main/java/nl/tno/msg/tc_designator/Run.java`; add the following line to `IVCT/TS_Designator_Base/TS_Designator/TS_Designator.gradle`: *implementation "io.github.ivctool:Command:${ivctVersion}"*
+
 In this case there is no need to import IVCT_Framework in Eclipse. Importing TS_Designator_Base is sufficient.
 
 - Eclipse: TS_Designator - src/main/java - nl.tno.msg.tc_designator - Run.java - run
 
 #### Run option 3: run Test Suite standalone from command line
+To run the test suite the old fashioned way (not as a unit test): first copy `IVCT/TS_Designator_Base/TS_Designator/src/test/java/nl/tno/msg/tc_designator/Run.java` to `IVCT/TS_Designator_Base/TS_Designator/src/main/java/nl/tno/msg/tc_designator/Run.java`; add the following line to `IVCT/TS_Designator_Base/TS_Designator/TS_Designator.gradle`: *implementation "io.github.ivctool:Command:${ivctVersion}"*
+
 In this case there is no need to use Eclipse.
 
 - DOS window: `IVCT/runtime/TS_Designator-x.x.x/bin/TS_Designator.bat`
