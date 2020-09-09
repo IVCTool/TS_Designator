@@ -4,15 +4,3 @@ project.group = 'msg134-designator'
 project.version = "${designatorVersion}"
 apply from: "./.shared/commons.gradle"
 
-apply plugin: 'java'
-dependencies {
-    implementation libraries.oorti
-    implementation libraries.tc_lib
-    implementation libraries.tc_lib_designator
-}
-
-project(':TestApp') {
-    dependencies {
-        implementation project(':TS_Designator')
-    }
-}

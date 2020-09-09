@@ -29,8 +29,8 @@ mainClassName = 'nl.tno.msg.tc_designator.Run'
 
 dependencies {
 
-    implementation  libraries.ieee_lib
-	implementation  libraries.tc_lib
+    compileOnly  libraries.ieee_lib
+	compileOnly  libraries.tc_lib
     implementation  libraries.tc_lib_designator
     implementation  libraries.oorti
 
