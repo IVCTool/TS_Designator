@@ -7,10 +7,10 @@ ext {
     gradleWrapperVersion = "${gradleVersion}"
 
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~ IVCT settings
-    ivctVersion = '3.1.0-SNAPSHOT'
+    ivctVersion = '4.0.1-SNAPSHOT'
 
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~ Designator settings
-	designatorVersion = '1.0.0'
+	designatorVersion = '1.0.1-SNAPSHOT'
 
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~ testing
     jupiterVersion = '5.6.2'
