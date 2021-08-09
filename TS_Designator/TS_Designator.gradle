@@ -1,39 +1,53 @@
-buildscript {
-    repositories {
-		mavenLocal()
-		mavenCentral()
-	}
-  dependencies {
-	classpath libraries.docker
-  }
+plugins {
+    // use java application packaging feature
+    id 'application'
+    // JIB Container Support for Java applications
+    id 'com.google.cloud.tools.jib' version '3.1.1'
 }
-
-// apply plugin: "com.bmuschko.docker-remote-api"
-apply plugin: com.bmuschko.gradle.docker.DockerRemoteApiPlugin
-
-// Import task types
-import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
-
-// Use task types
-task dockerBuildImage(type: DockerBuildImage) {
-    dependsOn 'install'
-    inputDir = file('.')
-    buildArgs.put('version', "${designatorVersion}")
-    tags.add ("ivct/ts-designator:${designatorVersion}")
-}
-
-// use java application packaging feature
-apply plugin: 'application'
 
 mainClassName = 'nl.tno.msg.tc_designator.Run'
+
+
+// docker image configuration for googles JIB
+task dockerBuildImage (type: com.google.cloud.tools.jib.gradle.BuildDockerTask) {
+    group = 'Docker'
+    description = 'wrapper for the jib BuildDockerTask'
+    jibExtension = project.extensions.getByName('jib')
+    doFirst {
+		jib {
+			from {
+				image = 'busybox'
+			}
+			to {
+				image = "ivct/ts-designator:${designatorVersion}"
+			}
+			container {
+				entrypoint = ['sh', '-c', 'echo starting TS_Designator test suite container']
+				creationTime = 'USE_CURRENT_TIMESTAMP'
+				volumes ["/root/conf/TestSuites/TS_Designator-${designatorVersion}:TS_Designator-${designatorVersion}"]
+			}
+			extraDirectories {
+				paths {
+					path {
+						// TODO: this required dependency on jar build 
+						from = file('build/libs')
+						into = "/root/conf/TestSuites/TS_Designator-${designatorVersion}/lib"
+						includes = ["TS_Designator-${designatorVersion}.jar"]
+					}
+				}
+			}
+		}
+	}
+   	dependsOn('distTar')
+}
+
 
 dependencies {
 
     compileOnly  libraries.ieee_lib
 	compileOnly  libraries.tc_lib
-    implementation  libraries.tc_lib_designator
+    // third party software
     implementation  libraries.oorti
-
 	implementation  libraries.slf4j_api
 	compileOnly		libraries.logback_classic
 	compileOnly		libraries.logback_core
