@@ -1,7 +1,4 @@
-| Branch | Build status |
-| ------ | ------------ |
-| Master | [![Build Status master branch](https://travis-ci.org/IVCTool/TS_Designator.svg?branch=master)](https://travis-ci.org/IVCTool/TS_Designator) |
-| Development | [![Build Status development branch](https://travis-ci.org/IVCTool/TS_Designator.svg?branch=development)](https://travis-ci.org/IVCTool/TS_Designator) |
+[![gradle-publish](https://github.com/IVCTool/TS_Designator/actions/workflows/gradle-publish.yml/badge.svg)](https://github.com/IVCTool/TS_Designator/actions/workflows/gradle-publish.yml)
 
 # TS_Designator
 The Test Suite Designator provides test cases for the RPR-FOM Designator object class.
