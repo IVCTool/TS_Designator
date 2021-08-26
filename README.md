@@ -1,4 +1,5 @@
 [![gradle-publish](https://github.com/IVCTool/TS_Designator/actions/workflows/gradle-publish.yml/badge.svg)](https://github.com/IVCTool/TS_Designator/actions/workflows/gradle-publish.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/5ead0052879d44feae41d9e85ac5ec94)](https://www.codacy.com/gh/IVCTool/TS_Designator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=IVCTool/TS_Designator&amp;utm_campaign=Badge_Grade)
 
 # TS_Designator
 The Test Suite Designator provides test cases for the RPR-FOM Designator object class.
