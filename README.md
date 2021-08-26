@@ -258,3 +258,12 @@ In this case there is no need to use Eclipse.
 
 - DOS window: `IVCT/runtime/TS_Designator-x.x.x/bin/TS_Designator.bat`
 - Optionally adapt `IVCT/runtime/TS_Designator-x.x.x/lib/lib/logback-test.xml` to print e.g. DEBUG messages
+
+
+## Release Notes
+
+### Version 1.0.1-SNAPSHOT
+
+- upgrade to IVCT_Framework version 4.0.1-SNAPSHOT
+- update deprecated gradle tasks and upgrade to gradle 7.2
+- replace outdated docker plugin by [JIB from Google Container Tools](https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin) 
