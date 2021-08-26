@@ -2,7 +2,7 @@ plugins {
     // use java application packaging feature
     id 'application'
     // JIB Container Support for Java applications
-    id 'com.google.cloud.tools.jib' version '3.1.1'
+    id 'com.google.cloud.tools.jib' version "${jibPluginVersion}"
 }
 
 mainClassName = 'nl.tno.msg.tc_designator.Run'
