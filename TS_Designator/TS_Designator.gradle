@@ -57,8 +57,8 @@ dependencies {
 	compileOnly		libraries.jsonSimple
 
     testImplementation  libraries.tc_lib
-    testImplementation  "io.github.ivctool:Command:${ivctVersion}"
     testImplementation  libraries.oorti
+	testImplementation  files("$System.env.LRC_CLASSPATH")
 
     testImplementation	libraries.junit_jupiter_engine
 }

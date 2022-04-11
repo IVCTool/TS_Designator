@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.fraunhofer.iosb.tc_lib.AbstractTestCase;
-import de.fraunhofer.iosb.tc_lib.IVCT_Verdict;
+import de.fraunhofer.iosb.tc_lib_if.IVCT_Verdict;
 
 public class Run {
 
@@ -40,11 +40,12 @@ public class Run {
 			testSchedule[i].setSutName(sutName);
 			testSchedule[i].setTcName(testSchedule[i].getClass().getName());
 			testSchedule[i].setTsName(tsName);
+			testSchedule[i].setTcParam(tcParamJson);
 
 			runLogger.info("************************************************");
 			runLogger.info("**************** Run Test Case {} **************", testSchedule[i].getTcName());
 			testSchedule[i].setSkipOperatorMsg(true);
-			IVCT_Verdict verdict = testSchedule[i].execute(tcParamJson, runLogger);
+			IVCT_Verdict verdict = testSchedule[i].execute(runLogger);
 			runLogger.info(verdict.toString());
 			i++;
 			runLogger.info("************************************************");

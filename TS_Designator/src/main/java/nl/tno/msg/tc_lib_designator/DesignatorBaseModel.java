@@ -54,7 +54,6 @@ import org.slf4j.Logger;
  */
 public class DesignatorBaseModel extends IVCT_BaseModel {
 	private long tNow = -1;
-	private IVCT_RTIambassador ivct_rti;
 	private DesignatorTcParam designatorTcParam;
 	private Logger logger;
 	private final Map<ObjectInstanceHandle, KnownObject> knownObjects = new ConcurrentHashMap<ObjectInstanceHandle, KnownObject>();
@@ -229,7 +228,7 @@ public class DesignatorBaseModel extends IVCT_BaseModel {
 	 *			designator ivct parameters
 	 */
 	public DesignatorBaseModel(final Logger logger, final IVCT_RTIambassador ivct_rti, final DesignatorTcParam designatorTcParam) {
-		super(ivct_rti, logger, designatorTcParam);
+		super(logger, designatorTcParam);
 		tNow = System.currentTimeMillis();
 		this.logger = logger;
 		this.ivct_rti = ivct_rti;
